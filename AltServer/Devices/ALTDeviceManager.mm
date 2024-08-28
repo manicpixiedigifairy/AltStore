@@ -105,6 +105,8 @@ NSNotificationName const ALTDeviceManagerDeviceDidDisconnectNotification = @"ALT
         __block afc_client_t afc = NULL;
         __block misagent_client_t mis = NULL;
         __block lockdownd_service_descriptor_t service = NULL;
+        __block plist_t device_version_plist = NULL;
+        __block char *device_version_string = NULL;
         
         NSMutableDictionary<NSString *, ALTProvisioningProfile *> *cachedProfiles = [NSMutableDictionary dictionary];
         NSMutableSet<ALTProvisioningProfile *> *installedProfiles = [NSMutableSet set];
@@ -179,6 +181,13 @@ NSNotificationName const ALTDeviceManagerDeviceDidDisconnectNotification = @"ALT
             misagent_client_free(mis);
             idevice_free(device);
             lockdownd_service_descriptor_free(service);
+            plist_free(device_version_plist);
+            
+            if (device_version_string != nil)
+            {
+                free(device_version_string);
+                device_version_string = NULL;
+            }
             
             free(uuidString);
             uuidString = NULL;
@@ -281,6 +290,16 @@ NSNotificationName const ALTDeviceManagerDeviceDidDisconnectNotification = @"ALT
         }
         
         
+        /* Get iOS Version */
+        if (lockdownd_get_value(client, NULL, "ProductVersion", &device_version_plist) != LOCKDOWN_E_SUCCESS)
+        {
+            return finish([NSError errorWithDomain:AltServerErrorDomain code:ALTServerErrorConnectionFailed userInfo:nil]);
+        }
+        
+        plist_get_string_val(device_version_plist, &device_version_string);
+        NSOperatingSystemVersion osVersion = NSOperatingSystemVersionFromString(@(device_version_string));
+        
+        
         /* Connect to AFC service */
         if ((lockdownd_start_service(client, "com.apple.afc", &service) != LOCKDOWN_E_SUCCESS) || service == NULL)
         {
@@ -344,7 +363,11 @@ NSNotificationName const ALTDeviceManagerDeviceDidDisconnectNotification = @"ALT
             service = NULL;
         }
         
-        BOOL shouldManageProfiles = (activeProvisioningProfiles != nil || [application.provisioningProfile isFreeProvisioningProfile]);
+        // As of iOS 18, removing all provisioning profiles causes apps to become unverified.
+        // Thankfully this technique is no longer necessary, so only remove profiles on devices running iOS 17.x or earlier.
+        BOOL isAtLeastiOS18 = (osVersion.majorVersion >= 18);
+        BOOL shouldManageProfiles = !isAtLeastiOS18 && (activeProvisioningProfiles != nil || [application.provisioningProfile isFreeProvisioningProfile]);
+        
         if (shouldManageProfiles)
         {
             // Free developer account was used to sign this app, so we need to remove all
