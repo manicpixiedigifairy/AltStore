@@ -48,7 +48,7 @@ class InstallAppOperation: ResultOperation<InstalledApp>
         Logger.sideload.notice("Installing resigned app \(resignedApp.bundleIdentifier, privacy: .public)...")
         
         @Managed var appVersion = self.context.appVersion
-        let storeBuildVersion = $appVersion.buildVersion
+        let storeBuildVersion = self.context.storeBuildVersion ?? $appVersion.buildVersion
         
         let backgroundContext = DatabaseManager.shared.persistentContainer.newBackgroundContext()
         backgroundContext.perform {

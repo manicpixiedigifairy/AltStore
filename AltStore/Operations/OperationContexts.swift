@@ -112,7 +112,7 @@ class AppOperationContext
             }
         }
     }
-    private var _error: Error?
+    fileprivate var _error: Error?
     
     init(bundleIdentifier: String, authenticatedContext: AuthenticatedOperationContext)
     {
@@ -155,4 +155,7 @@ class InstallAppOperationContext: AppOperationContext
     // Non-nil when installing from a source.
     @AsyncManaged
     var appVersion: AppVersion?
+    
+    // Override build version (used for backup apps)
+    var storeBuildVersion: String?
 }

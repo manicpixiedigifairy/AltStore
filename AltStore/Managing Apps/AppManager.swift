@@ -1573,6 +1573,10 @@ private extension AppManager
         let restoreContext = InstallAppOperationContext(bundleIdentifier: app.bundleIdentifier, authenticatedContext: group.context)
         let appContext = InstallAppOperationContext(bundleIdentifier: app.bundleIdentifier, authenticatedContext: group.context)
         
+        app.managedObjectContext?.performAndWait {
+            appContext.storeBuildVersion = app.storeBuildVersion
+        }
+        
         let installBackupAppProgress = Progress.discreteProgress(totalUnitCount: 100)
         let installBackupAppOperation = RSTAsyncBlockOperation { [weak self] (operation) in
             app.managedObjectContext?.perform {
@@ -1835,9 +1839,11 @@ private extension AppManager
                     
                     if var infoDictionary = unzippedAppBundle.infoDictionary
                     {
-                        // Replace name + bundle identifier so AltStore treats it as the same app.
+                        // Replace name, bundle identifier, and version so AltStore treats it as the same app.
                         infoDictionary["CFBundleDisplayName"] = app.name
                         infoDictionary[kCFBundleIdentifierKey as String] = app.bundleIdentifier
+                        infoDictionary[kCFBundleVersionKey as String] = app.buildVersion
+                        infoDictionary["CFBundleShortVersionString"] = app.version
                         
                         // Add app-specific exported UTI so we can check later if this temporary backup app is still installed or not.
                         let installedAppUTI = ["UTTypeConformsTo": [],
@@ -1902,6 +1908,10 @@ private extension AppManager
             
             var appGroups = application.entitlements[.appGroups] as? [String] ?? []
             appGroups.append(Bundle.baseAltStoreAppGroupID)
+            
+            // Manually assign context.storeBuildVersion to app's storeBuildVersion.
+            // This fixes a bug where failing to install backup app could result in redundant update available.
+            context.storeBuildVersion = app.managedObjectContext?.performAndWait { app.storeBuildVersion }
             
             let additionalEntitlements: [ALTEntitlement: Any] = [.appGroups: appGroups]
             let progress = self._install(backupApp, operation: appOperation, group: group, context: context, additionalEntitlements: additionalEntitlements, cacheApp: false) { (result) in
