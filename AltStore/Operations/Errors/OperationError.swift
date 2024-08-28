@@ -62,7 +62,10 @@ extension OperationError
         OperationError(code: .unknown, failureReason: failureReason, sourceFile: file, sourceLine: line)
     }
     
-    static func appNotFound(name: String?) -> OperationError { OperationError(code: .appNotFound, appName: name) }
+    static func appNotFound(name: String?, file: String = #fileID, line: UInt = #line) -> OperationError {
+        OperationError(code: .appNotFound, appName: name, sourceFile: file, sourceLine: line)
+    }
+    
     static func openAppFailed(name: String) -> OperationError { OperationError(code: .openAppFailed, appName: name) }
     
     static func maximumAppIDLimitReached(appName: String, requiredAppIDs: Int, availableAppIDs: Int, expirationDate: Date) -> OperationError {
