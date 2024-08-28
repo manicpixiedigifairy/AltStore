@@ -42,7 +42,9 @@ class AuthenticationOperation: ResultOperation<(ALTTeam, ALTCertificate, ALTAppl
 {
     let context: AuthenticatedOperationContext
     
-    private weak var presentingViewController: UIViewController?
+    private var presentingViewController: UIViewController? {
+        return self.context.presentingViewController
+    }
     
     private lazy var navigationController: UINavigationController = {
         let navigationController = self.storyboard.instantiateViewController(withIdentifier: "navigationController") as! UINavigationController
@@ -63,7 +65,12 @@ class AuthenticationOperation: ResultOperation<(ALTTeam, ALTCertificate, ALTAppl
     init(context: AuthenticatedOperationContext, presentingViewController: UIViewController?)
     {
         self.context = context
-        self.presentingViewController = presentingViewController
+        
+        if let presentingViewController
+        {
+            // Only set if non-nil to avoid accidentally resetting existing value.
+            self.context.presentingViewController = presentingViewController
+        }
         
         super.init()
         

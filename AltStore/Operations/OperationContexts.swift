@@ -22,8 +22,13 @@ class OperationContext
     
     var presentingViewController: UIViewController? {
         get {
-            // Return first view controller that is non-nil, on-screen, AND is not currently being dismissed.
-            let viewController = [self.primaryViewController, self.secondaryViewController].compactMap { $0 }.first(where: { $0.isViewLoaded && $0.view.window != nil && !$0.isDisappearing })
+            var viewController: UIViewController?
+            
+            rst_dispatch_sync_on_main_thread {
+                // Return first view controller that is non-nil, on-screen, AND is not currently being dismissed.
+                viewController = [self.primaryViewController, self.secondaryViewController].compactMap { $0 }.first(where: { $0.isViewLoaded && $0.view.window != nil && !$0.isDisappearing })
+            }
+            
             return viewController
         }
         set {
