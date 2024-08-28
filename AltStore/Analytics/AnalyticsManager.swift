@@ -18,7 +18,7 @@ private let telemetryDeckAppID = "67F64B51-C3E4-42A5-9CA2-300CCAFA55C9"
 
 #else
 
-private let telemetryDeckAppID = ""
+private let telemetryDeckAppID = "D791762B-8577-4B25-B7EA-9241F6B07BF4"
 
 #endif
 
