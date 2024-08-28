@@ -56,7 +56,7 @@ class JoinPatreonViewController: UIViewController
         
         self.navigationController?.navigationBar.tintColor = self.$storeApp.tintColor
         
-        if let sheetController = self.navigationController?.sheetPresentationController
+        if #available(iOS 16, *), let sheetController = self.navigationController?.sheetPresentationController
         {
             let customDetent = UISheetPresentationController.Detent.custom { [weak self] context in
                 guard let self else { return 350 }
