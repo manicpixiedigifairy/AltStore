@@ -271,10 +271,10 @@ private extension VerifyAppOperation
             // so source maintainers have time to update their sources.
             guard let presentingViewController = self.context.presentingViewController else { throw error }
             
-            let message = NSLocalizedString("While AltStore 2.0 is in beta, you may choose to ignore this warning at your own risk until the source is updated.", comment: "")
+            let message = NSLocalizedString("You may choose to ignore this warning at your own risk until the source is updated.", comment: "")
             
             let ignoreAction = await UIAlertAction(title: NSLocalizedString("Install Anyway", comment: ""), style: .destructive)
-            let viewPermissionsAction = await UIAlertAction(title: NSLocalizedString("View Permisions", comment: ""), style: .default)
+            let viewPermissionsAction = await UIAlertAction(title: NSLocalizedString("View Permissions", comment: ""), style: .default)
             
             while true
             {
