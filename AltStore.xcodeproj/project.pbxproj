@@ -237,7 +237,6 @@
 		BFC1F38D22AEE3A4003AC21A /* DownloadAppOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC1F38C22AEE3A4003AC21A /* DownloadAppOperation.swift */; };
 		BFC57A652416C72400EB891E /* DeactivateAppOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC57A642416C72400EB891E /* DeactivateAppOperation.swift */; };
 		BFC57A6E2416FC5D00EB891E /* InstalledAppsCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC57A6D2416FC5D00EB891E /* InstalledAppsCollectionHeaderView.swift */; };
-		BFC57A702416FC7600EB891E /* InstalledAppsCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFC57A6F2416FC7600EB891E /* InstalledAppsCollectionHeaderView.xib */; };
 		BFC712BB2512B9CF00AB5EBE /* PluginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC712BA2512B9CF00AB5EBE /* PluginManager.swift */; };
 		BFC712C32512D5F100AB5EBE /* XPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC712C12512D5F100AB5EBE /* XPCConnection.swift */; };
 		BFC712C42512D5F100AB5EBE /* XPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC712C12512D5F100AB5EBE /* XPCConnection.swift */; };
@@ -891,7 +890,6 @@
 		BFC1F38C22AEE3A4003AC21A /* DownloadAppOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAppOperation.swift; sourceTree = "<group>"; };
 		BFC57A642416C72400EB891E /* DeactivateAppOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeactivateAppOperation.swift; sourceTree = "<group>"; };
 		BFC57A6D2416FC5D00EB891E /* InstalledAppsCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalledAppsCollectionHeaderView.swift; sourceTree = "<group>"; };
-		BFC57A6F2416FC7600EB891E /* InstalledAppsCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstalledAppsCollectionHeaderView.xib; sourceTree = "<group>"; };
 		BFC712BA2512B9CF00AB5EBE /* PluginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginManager.swift; sourceTree = "<group>"; };
 		BFC712C12512D5F100AB5EBE /* XPCConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCConnection.swift; sourceTree = "<group>"; };
 		BFC712C22512D5F100AB5EBE /* XPCConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCConnectionHandler.swift; sourceTree = "<group>"; };
@@ -1799,7 +1797,6 @@
 				BF08858422DE7EC800DE9F1E /* UpdateCollectionViewCell.swift */,
 				BFB4323E22DE852000B7F8BC /* UpdateCollectionViewCell.xib */,
 				BFC57A6D2416FC5D00EB891E /* InstalledAppsCollectionHeaderView.swift */,
-				BFC57A6F2416FC7600EB891E /* InstalledAppsCollectionHeaderView.xib */,
 			);
 			path = "My Apps";
 			sourceTree = "<group>";
@@ -2820,7 +2817,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFC57A702416FC7600EB891E /* InstalledAppsCollectionHeaderView.xib in Resources */,
 				BFB4323F22DE852000B7F8BC /* UpdateCollectionViewCell.xib in Resources */,
 				D59162AD29BA616A005CBF47 /* SourceHeaderView.xib in Resources */,
 				BFE60738231ADF49002B0E8E /* Settings.storyboard in Resources */,
