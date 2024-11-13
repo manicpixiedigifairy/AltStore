@@ -147,7 +147,7 @@ public extension InstalledApp
     
     func loadIcon(completion: @escaping (Result<UIImage?, Error>) -> Void)
     {
-        if self.bundleIdentifier == StoreApp.altstoreAppID, let iconName = UIApplication.alt_shared?.alternateIconName
+        if self.bundleIdentifier == StoreApp.altstoreAppID, let iconName = UIApplication.alt_shared?.alt_alternateIconName
         {
             // Use alternate app icon for AltStore, if one is chosen.
             

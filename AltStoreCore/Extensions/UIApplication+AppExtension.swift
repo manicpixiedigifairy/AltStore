@@ -14,4 +14,8 @@ public extension UIApplication
     class var alt_shared: UIApplication? {
         return UIApplication.value(forKey: "sharedApplication") as? UIApplication
     }
+    
+    var alt_alternateIconName: String? {
+        return self.value(forKey: "alternateIconName") as? String
+    }
 }
