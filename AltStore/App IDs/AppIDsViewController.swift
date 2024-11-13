@@ -11,6 +11,12 @@ import UIKit
 import AltStoreCore
 import Roxas
 
+@objc(AppIDsCollectionHeaderView)
+private class AppIDsCollectionHeaderView: TextCollectionReusableView
+{
+    static let nib = UINib(nibName: "AppIDsCollectionHeaderView", bundle: nil)
+}
+
 class AppIDsViewController: UICollectionViewController
 {
     private lazy var dataSource = self.makeDataSource()
@@ -35,6 +41,8 @@ class AppIDsViewController: UICollectionViewController
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(AppIDsViewController.fetchAppIDs), for: .primaryActionTriggered)
         self.collectionView.refreshControl = refreshControl
+        
+        self.collectionView.register(AppIDsCollectionHeaderView.nib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -132,6 +140,32 @@ private extension AppIDsViewController
         return dataSource
     }
     
+    func configureAppIDsHeader(_ headerView: AppIDsCollectionHeaderView)
+    {
+        headerView.layoutMargins.left = self.view.layoutMargins.left
+        headerView.layoutMargins.right = self.view.layoutMargins.right
+        
+        if let activeTeam = DatabaseManager.shared.activeTeam(), activeTeam.type == .free
+        {
+            let text = NSLocalizedString("""
+            Each app and app extension installed with AltStore must register an App ID with Apple. Apple limits non-developer Apple IDs to 10 App IDs at a time.
+
+            **App IDs can't be deleted**, but they do expire after one week. AltStore will automatically renew App IDs for all active apps once they've expired.
+            """, comment: "")
+            
+            let attributedText = NSAttributedString(markdownRepresentation: text, attributes: [.font: headerView.textLabel.font as Any])
+            headerView.textLabel.attributedText = attributedText
+        }
+        else
+        {
+            headerView.textLabel.text = NSLocalizedString("""
+            Each app and app extension installed with AltStore must register an App ID with Apple.
+            
+            App IDs for paid developer accounts never expire, and there is no limit to how many you can create.
+            """, comment: "")
+        }
+    }
+    
     @objc func fetchAppIDs()
     {
         guard !self.isLoading else { return }
@@ -176,8 +210,8 @@ extension AppIDsViewController: UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
     {
-        let indexPath = IndexPath(row: 0, section: section)
-        let headerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: indexPath)
+        let headerView = AppIDsCollectionHeaderView.nib.instantiate(withOwner: nil).first as! AppIDsCollectionHeaderView
+        self.configureAppIDsHeader(headerView)
         
         // Use this view to calculate the optimal size based on the collection view's width
         let size = headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingCompressedSize.height),
@@ -196,30 +230,8 @@ extension AppIDsViewController: UICollectionViewDelegateFlowLayout
         switch kind
         {
         case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as! TextCollectionReusableView
-            headerView.layoutMargins.left = self.view.layoutMargins.left
-            headerView.layoutMargins.right = self.view.layoutMargins.right
-            
-            if let activeTeam = DatabaseManager.shared.activeTeam(), activeTeam.type == .free
-            {
-                let text = NSLocalizedString("""
-                Each app and app extension installed with AltStore must register an App ID with Apple. Apple limits non-developer Apple IDs to 10 App IDs at a time.
-
-                **App IDs can't be deleted**, but they do expire after one week. AltStore will automatically renew App IDs for all active apps once they've expired.
-                """, comment: "")
-                
-                let attributedText = NSAttributedString(markdownRepresentation: text, attributes: [.font: headerView.textLabel.font as Any])
-                headerView.textLabel.attributedText = attributedText
-            }
-            else
-            {
-                headerView.textLabel.text = NSLocalizedString("""
-                Each app and app extension installed with AltStore must register an App ID with Apple.
-                
-                App IDs for paid developer accounts never expire, and there is no limit to how many you can create.
-                """, comment: "")
-            }
-            
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as! AppIDsCollectionHeaderView
+            self.configureAppIDsHeader(headerView)
             return headerView
             
         case UICollectionView.elementKindSectionFooter:

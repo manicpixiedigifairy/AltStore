@@ -762,13 +762,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="Wzt-qc-XG8">
                             <size key="itemSize" width="375" height="80"/>
-                            <size key="headerReferenceSize" width="50" height="60"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="50" height="50"/>
                             <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="20"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" reuseIdentifier="Cell" id="XWu-DU-xbh" customClass="AppBannerCollectionViewCell" customModule="AltStore" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="70" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="10" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -776,29 +776,8 @@
                                 </view>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Header" id="th0-G6-bRt" customClass="TextCollectionReusableView" customModule="AltStore" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App IDs Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83Z-Ih-nOW">
-                                    <rect key="frame" x="8" y="14" width="359" height="31"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                    <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="83Z-Ih-nOW" secondAttribute="bottom" constant="15" id="CQA-og-LZ2"/>
-                                <constraint firstItem="83Z-Ih-nOW" firstAttribute="top" secondItem="th0-G6-bRt" secondAttribute="top" constant="14" id="e0J-MA-eH5"/>
-                                <constraint firstAttribute="leadingMargin" secondItem="83Z-Ih-nOW" secondAttribute="leading" id="nGf-Rh-mnk"/>
-                                <constraint firstAttribute="trailingMargin" secondItem="83Z-Ih-nOW" secondAttribute="trailing" id="sYg-nT-ror"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="textLabel" destination="83Z-Ih-nOW" id="xxM-HD-iJS"/>
-                            </connections>
-                        </collectionReusableView>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Footer" id="xMh-lD-r6C" customClass="TextCollectionReusableView" customModule="AltStore" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="170" width="375" height="50"/>
+                            <rect key="frame" x="0.0" y="110" width="375" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 App IDs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zna-7n-kBz">

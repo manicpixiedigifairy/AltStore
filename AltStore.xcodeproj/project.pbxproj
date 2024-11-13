@@ -343,6 +343,7 @@
 		D50107EC2ADF2E1A0069F2A1 /* AddSourceTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50107EB2ADF2E1A0069F2A1 /* AddSourceTextFieldCell.swift */; };
 		D504F5BB2CE566FE00AD3760 /* InstalledAppsCollectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D504F5BA2CE566F900AD3760 /* InstalledAppsCollectionFooterView.swift */; };
 		D504F5BD2CE5671700AD3760 /* InstalledAppsCollectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D504F5BC2CE5671700AD3760 /* InstalledAppsCollectionFooterView.xib */; };
+		D504F5BF2CE56F1400AD3760 /* AppIDsCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D504F5BE2CE56F1400AD3760 /* AppIDsCollectionHeaderView.xib */; };
 		D5084CCC2B1EA80100C02160 /* FeaturedComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5084CCB2B1EA80100C02160 /* FeaturedComponents.swift */; };
 		D50F7FF12C5BFEE70064F7CE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D50F7FF02C5BFEE70064F7CE /* PrivacyInfo.xcprivacy */; };
 		D513F6162A12CE4E0061EAA1 /* SourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571ADCD2A02FA7400B24B63 /* SourceError.swift */; };
@@ -988,6 +989,7 @@
 		D50107EB2ADF2E1A0069F2A1 /* AddSourceTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSourceTextFieldCell.swift; sourceTree = "<group>"; };
 		D504F5BA2CE566F900AD3760 /* InstalledAppsCollectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalledAppsCollectionFooterView.swift; sourceTree = "<group>"; };
 		D504F5BC2CE5671700AD3760 /* InstalledAppsCollectionFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstalledAppsCollectionFooterView.xib; sourceTree = "<group>"; };
+		D504F5BE2CE56F1400AD3760 /* AppIDsCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppIDsCollectionHeaderView.xib; sourceTree = "<group>"; };
 		D5084CCB2B1EA80100C02160 /* FeaturedComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedComponents.swift; sourceTree = "<group>"; };
 		D50F7FF02C5BFEE70064F7CE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		D5144BA72B8684EF00738A5C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -1493,6 +1495,7 @@
 			isa = PBXGroup;
 			children = (
 				BF56D2AE23DF9E310006506D /* AppIDsViewController.swift */,
+				D504F5BE2CE56F1400AD3760 /* AppIDsCollectionHeaderView.xib */,
 			);
 			path = "App IDs";
 			sourceTree = "<group>";
@@ -2835,6 +2838,7 @@
 				BF770E6922BD57DD002A40FE /* Silence.m4a in Resources */,
 				BFD247772284B9A700981D42 /* Assets.xcassets in Resources */,
 				BFF0B6922321A305007A79E1 /* AboutPatreonHeaderView.xib in Resources */,
+				D504F5BF2CE56F1400AD3760 /* AppIDsCollectionHeaderView.xib in Resources */,
 				D504F5BD2CE5671700AD3760 /* InstalledAppsCollectionFooterView.xib in Resources */,
 				BFB6B22423187A3D0022A802 /* NewsCollectionViewCell.xib in Resources */,
 				D50F7FF12C5BFEE70064F7CE /* PrivacyInfo.xcprivacy in Resources */,
