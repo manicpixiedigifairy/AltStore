@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="InstalledAppsFooter" id="RKX-j2-rXC" customClass="InstalledAppsCollectionFooterView" customModule="AltStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60.666666666666664"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="900" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yKr-HZ-j5V">
+                    <rect key="frame" x="139" y="0.0" width="97" height="52.666666666666664"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5/10 App IDs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLh-GP-Vq4">
+                            <rect key="frame" x="0.0" y="0.0" width="97" height="20.333333333333332"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lw-ll-Cg2">
+                            <rect key="frame" x="0.0" y="20.333333333333332" width="97" height="32.333333333333343"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="View App IDs"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="f65-Tp-avW"/>
+            <constraints>
+                <constraint firstItem="yKr-HZ-j5V" firstAttribute="top" secondItem="RKX-j2-rXC" secondAttribute="top" id="8h9-0n-rI7"/>
+                <constraint firstItem="yKr-HZ-j5V" firstAttribute="centerX" secondItem="RKX-j2-rXC" secondAttribute="centerX" id="Pi7-qQ-f7j"/>
+                <constraint firstAttribute="bottom" secondItem="yKr-HZ-j5V" secondAttribute="bottom" priority="999" constant="8" id="U7H-ft-MeC"/>
+            </constraints>
+            <connections>
+                <outlet property="button" destination="8lw-ll-Cg2" id="brP-5D-ct5"/>
+                <outlet property="textLabel" destination="WLh-GP-Vq4" id="i6P-Ix-SNE"/>
+            </connections>
+            <point key="canvasLocation" x="97" y="20"/>
+        </collectionReusableView>
+    </objects>
+</document>

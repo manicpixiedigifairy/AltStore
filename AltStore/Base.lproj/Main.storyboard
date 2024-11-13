@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wKh-xq-NuP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wKh-xq-NuP">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -582,7 +582,7 @@
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="SB5-U0-jyy">
                             <size key="itemSize" width="375" height="60"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="50" height="60.5"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
@@ -682,40 +682,6 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="InstalledAppsFooter" id="HYs-co-nJZ" customClass="InstalledAppsCollectionFooterView" customModule="AltStore" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="135" width="375" height="60.5"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="900" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GFQ-Wy-Qhy">
-                                    <rect key="frame" x="139" y="0.0" width="97" height="52.5"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5/10 App IDs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLv-8I-6Of">
-                                            <rect key="frame" x="0.0" y="0.0" width="97" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHb-0F-cHZ">
-                                            <rect key="frame" x="0.0" y="20.5" width="97" height="32"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <state key="normal" title="View App IDs"/>
-                                            <connections>
-                                                <segue destination="IXk-qg-mFJ" kind="presentation" identifier="showAppIDs" id="yZB-Fh-cTL"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="GFQ-Wy-Qhy" secondAttribute="bottom" priority="999" constant="8" id="HGl-P6-G2v"/>
-                                <constraint firstItem="GFQ-Wy-Qhy" firstAttribute="top" secondItem="HYs-co-nJZ" secondAttribute="top" id="gg9-XU-2ej"/>
-                                <constraint firstItem="GFQ-Wy-Qhy" firstAttribute="centerX" secondItem="HYs-co-nJZ" secondAttribute="centerX" id="vyo-h4-yD9"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="button" destination="NHb-0F-cHZ" id="wOh-Ee-jhN"/>
-                                <outlet property="textLabel" destination="LLv-8I-6Of" id="t2D-f1-5pC"/>
-                            </connections>
-                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="hv7-Ar-voT" id="YOx-f4-chF"/>
                             <outlet property="delegate" destination="hv7-Ar-voT" id="1PN-pf-cZK"/>
@@ -730,6 +696,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="0V6-N4-hTO" kind="show" identifier="showUpdate" id="dzt-2e-VM9"/>
+                        <segue destination="IXk-qg-mFJ" kind="presentation" identifier="showAppIDs" id="fRP-dT-xoe"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kiO-UO-esV" userLabel="First Responder" sceneMemberID="firstResponder"/>
