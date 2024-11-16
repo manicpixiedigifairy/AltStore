@@ -89,7 +89,7 @@ private extension EnableJIT
         {
             Logger.main.info("Starting RSD tunnel with timeout: \(self.timeout)")
             
-            let process = try Process.launch(.python3, arguments: ["-u", "-m", "pymobiledevice3", "remote", "start-quic-tunnel", "--udid", self.udid], environment: self.processEnvironment)
+            let process = try Process.launch(.python3, arguments: ["-u", "-m", "pymobiledevice3", "remote", "start-tunnel", "--udid", self.udid], environment: self.processEnvironment)
             
             do
             {
